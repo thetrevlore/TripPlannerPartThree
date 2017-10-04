@@ -537,7 +537,7 @@ module.exports={"$version":8,"$root":{"version":{"required":true,"type":"enum","
 const mapboxgl = __webpack_require__(0);
 const buildMarker = __webpack_require__(3);
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiY2Fzc2lvemVuIiwiYSI6ImNqNjZydGl5dDJmOWUzM3A4dGQyNnN1ZnAifQ.0ZIRDup0jnyUFVzUa_5d1g';
+mapboxgl.accessToken = 'pk.eyJ1IjoidHJldm9yc3RvcmV5IiwiYSI6ImNqOGJyeGZ1bjAxNnkyd2xiYXRlb2lpMTIifQ.nzn2Dwl1aPDs3EZCveHOpA';
 
 const map = new mapboxgl.Map({
   container: "map",
@@ -558,11 +558,9 @@ const makeOption = (attraction, selector) => {
 };
 
 const buildAttraction = (category, attraction) => {
-	console.log('attraction', category)
 	// Append Marker
 	const newMarker = buildMarker(category, attraction.place.location);
 	state.selectedAttractions.push({ id: attraction.id, category});
-	console.log("marker", newMarker)
 	newMarker.addTo(map);
 
 	//Add Remove Button
@@ -571,10 +569,8 @@ const buildAttraction = (category, attraction) => {
 	removeButton.innerHTML = 'X';
 
 	// Append Item to day
-	console.log("cat", category)
 	const itineraryItem = document.createElement('li');
 	itineraryItem.className = 'itinerary-item';
-	console.log("itinerary", itineraryItem)
 	itineraryItem.append(attraction.name, removeButton);
 	document.getElementById(`${category}-list`).append(itineraryItem);
 
