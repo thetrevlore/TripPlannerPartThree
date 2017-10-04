@@ -7,6 +7,7 @@ var Place = require("./models").Place;
 var Hotel = require("./models").Hotel;
 var Restaurant = require("./models").Restaurant;
 var Activity = require("./models").Activity;
+var Itinerary = require("./models").Itinerary;
 
 var data = {
   hotel: [
@@ -539,8 +540,14 @@ var data = {
       },
       age_range: "All"
     }
+  ],
+  itinerary: [
+    {
+      id: 1
+    }
   ]
 };
+
 
 db
   .sync({ force: true })
@@ -549,7 +556,7 @@ db
     return Promise.map(Object.keys(data), function(name) {
       return Promise.map(data[name], function(item) {
         return db.model(name).create(item, {
-          include: [Place]
+          include: [{ all: true }]
         });
       });
     });
