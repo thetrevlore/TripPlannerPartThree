@@ -39,7 +39,7 @@ const buildAttraction = (category, attraction) => {
 	document.getElementById(`${category}-list`).append(itineraryItem);
 
 	removeButton.addEventListener('click', function remove(){
-		
+
 		// remove attraction from state;
 		state.selectedAttractions = state.selectedAttractions.filter(
 			selected => selected.id !== attraction.id

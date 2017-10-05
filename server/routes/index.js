@@ -16,7 +16,7 @@ router.get('/', (req, res, next) => {
 			activities
 		})
 	})
-	.catch(next)	
+	.catch(next)
 })
 
 module.exports = router;
